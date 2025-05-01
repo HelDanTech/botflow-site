@@ -213,4 +213,35 @@ a { text-decoration:none; }
       margin-left: auto;
     }
   }
+  /* Demo Signup Styles */
+.demo-signup {
+    background: #ECEFF1;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .demo-signup h2 {
+    margin-bottom: 1.5rem;
+    color: #2E2E2E;
+  }
+  .demo-form {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  .demo-input {
+    flex: 1 1 250px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .demo-form .btn {
+    flex: 0 0 auto;
+    padding: 0.75rem 1.5rem;
+    background: #0D8ABC;
+    color: #fff;
+    border-radius: 8px;
+  }
   
