@@ -7,16 +7,17 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+
   <!-- Header -->
   <header class="site-header">
     <img src="assets/logo.png" alt="BotFlow Solutions" class="logo"/>
     <nav>
       <ul class="nav-links">
-        <li><a href="#home" class="lang" data-pt="Início" data-en="Home">Início</a></li>
+        <li><a href="#home" class="lang" data-pt="Início"    data-en="Home">Início</a></li>
         <li><a href="#services" class="lang" data-pt="Serviços" data-en="Services">Serviços</a></li>
-        <li><a href="#pricing" class="lang" data-pt="Preços" data-en="Pricing">Preços</a></li>
-        <li><a href="#about" class="lang" data-pt="Sobre" data-en="About">Sobre</a></li>
-        <li><a href="#contact" class="lang" data-pt="Contato" data-en="Contact">Contato</a></li>
+        <li><a href="#pricing" class="lang" data-pt="Preços"   data-en="Pricing">Preços</a></li>
+        <li><a href="#about" class="lang" data-pt="Sobre"    data-en="About">Sobre</a></li>
+        <li><a href="#contact" class="lang" data-pt="Contato"  data-en="Contact">Contato</a></li>
       </ul>
       <div class="lang-switch">
         <button data-lang="pt">PT</button>
@@ -38,13 +39,21 @@
       Aumente a precisão dos pedidos, reduza erros e agende entregas em segundos.
     </p>
     <div class="hero-cta">
-      <a href="#Demo" class="btn lang" data-pt="Solicitar Demo" data-en="Request Demo">Solicitar Demo</a>
-      <a href="#pricing" class="btn outline lang" data-pt="Ver Preços" data-en="View Pricing">Ver Preços</a>
+      <a href="#demo" class="btn lang"
+         data-pt="Solicitar Demo"
+         data-en="Request Demo">
+        Solicitar Demo
+      </a>
+      <a href="#pricing" class="btn outline lang"
+         data-pt="Ver Preços"
+         data-en="View Pricing">
+        Ver Preços
+      </a>
     </div>
   </section>
 
   <!-- Demo Signup -->
-<section id="demo" class="demo-signup">
+  <section id="demo" class="demo-signup">
     <div class="container">
       <h2 class="lang"
           data-pt="Garanta sua Demo Gratuita"
@@ -52,7 +61,7 @@
         Garanta sua Demo Gratuita
       </h2>
       <form id="demo-form"
-            action="https://formspree.io/f/xgvkogoj"
+            action="https://formspree.io/f/XXXXXXXX"
             method="POST"
             class="demo-form">
         <label for="email" class="lang"
@@ -63,10 +72,10 @@
         <input type="email"
                id="email"
                name="email"
-               placeholder="" 
                class="demo-input lang"
-               data-pt="digite seu e-mail"
-               data-en="enter your email"
+               data-pt="Digite seu e-mail"
+               data-en="Enter your email"
+               placeholder=""
                required>
         <button type="submit"
                 class="btn lang"
@@ -79,8 +88,7 @@
   </section>
 
   <!-- Services / Our Features -->
-
-<section id="services" class="features">
+  <section id="services" class="features">
     <div class="container">
       <h2 class="lang" data-pt="Nossos Recursos" data-en="Our Features">Nossos Recursos</h2>
       <div class="grid">
@@ -125,7 +133,7 @@
   </section>
 
   <!-- How It Works -->
-<section id="how-it-works" class="timeline">
+  <section id="how-it-works" class="timeline">
     <div class="container">
       <h2 class="lang" data-pt="Como Funciona" data-en="How It Works">Como Funciona</h2>
       <div class="steps">
@@ -156,9 +164,9 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Pricing -->
-<section id="pricing" class="pricing">
+  <section id="pricing" class="pricing">
     <div class="container">
       <h2 class="lang" data-pt="Planos & Preços" data-en="Pricing">Planos & Preços</h2>
       <table>
@@ -189,9 +197,9 @@
       </table>
     </div>
   </section>
-  
+
   <!-- About -->
-<section id="about" class="about">
+  <section id="about" class="about">
     <div class="container">
       <h2 class="lang" data-pt="Sobre Nós" data-en="About Us">Sobre Nós</h2>
       <p class="lang"
@@ -201,22 +209,30 @@
       </p>
     </div>
   </section>
-  
-  <!-- Contact & Footer -->
+
+  <!-- Footer / Contact -->
   <footer id="contact" class="footer">
     <div class="container">
-      <h3 class="lang" data-pt="Contato" data-en="Contact">Contato</h3>
-      <p>✉️ suporte@botflowsolutions.com<br>📞 +244 912 345 678</p>
-      <div class="social">
-        <a href="#"><span class="lang" data-pt="WhatsApp" data-en="WhatsApp">WhatsApp</span></a>
-        <a href="#"><span class="lang" data-pt="Telegram" data-en="Telegram">Telegram</span></a>
-        <a href="#"><span class="lang" data-pt="LinkedIn" data-en="LinkedIn">LinkedIn</span></a>
+      <div>
+        <h3 class="lang" data-pt="Contato" data-en="Contact">Contato</h3>
+        <p>✉️ suporte@botflowsolutions.com<br>📞 +244 912 345 678</p>
+      </div>
+      <div>
+        <h3 class="lang" data-pt="Links Rápidos" data-en="Quick Links">Links Rápidos</h3>
+        <a href="#home" class="lang" data-pt="Início" data-en="Home">Início</a>
+        <a href="#services" class="lang" data-pt="Serviços" data-en="Services">Serviços</a>
+        <a href="#pricing" class="lang" data-pt="Preços" data-en="Pricing">Preços</a>
+        <a href="#contact" class="lang" data-pt="Contato" data-en="Contact">Contato</a>
+      </div>
+      <div>
+        <h3 class="lang" data-pt="Redes Sociais" data-en="Social">Redes Sociais</h3>
+        <a href="#">WhatsApp</a>
+        <a href="#">Telegram</a>
+        <a href="#">LinkedIn</a>
       </div>
       <p class="copyright">© 2025 BotFlow Solutions</p>
     </div>
   </footer>
-  
-  <!-- … You’d continue with Services, How It Works, Pricing, etc. … -->
 
   <script src="js/lang.js"></script>
 </body>
