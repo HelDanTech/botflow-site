@@ -199,21 +199,8 @@ a { text-decoration:none; }
     .hero p {
       font-size: 1rem;
     }
-    /* Buttons full width */
-    .hero-cta .btn {
-      display: block;
-      width: 100%;
-      margin: 0.5rem 0;
-    }
-    /* Navigation: show a hamburger or hide nav-links, show lang-switch only */
-    .nav-links {
-      display: none;
-    }
-    .lang-switch {
-      margin-left: auto;
-    }
-  }
-  /* Demo Signup Styles */
+
+   /* Demo Signup Styles */
 .demo-signup {
     background: #ECEFF1;
     padding: 3rem 0;
@@ -243,5 +230,20 @@ a { text-decoration:none; }
     background: #0D8ABC;
     color: #fff;
     border-radius: 8px;
+  }  
+
+    /* Buttons full width */
+    .hero-cta .btn {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    /* Navigation: show a hamburger or hide nav-links, show lang-switch only */
+    .nav-links {
+      display: none;
+    }
+    .lang-switch {
+      margin-left: auto;
+    }
   }
   
