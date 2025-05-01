@@ -240,6 +240,28 @@ a { text-decoration:none; }
       width: 100%;
       margin: 0.5rem 0;
     }
+
+    /* Button hover & click feedback */
+    .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+    background-color: #0D8ABC;      /* swap to primary on hover */
+    transform: translateY(-2px);
+    }
+    .btn:active {
+    transform: translateY(0);
+    }
+  
+    /* Card lift on hover */
+    .features .card {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .features .card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    }  
+
     /* Navigation: show a hamburger or hide nav-links, show lang-switch only */
     .nav-links {
       display: none;
@@ -247,5 +269,21 @@ a { text-decoration:none; }
     .lang-switch {
       margin-left: auto;
     }
+  }
+  a {
+    position: relative;
+  }
+  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #33D9B2;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  a:hover::after {
+    width: 100%;
   }
   
