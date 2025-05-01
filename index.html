@@ -263,6 +263,24 @@
 
   <script src="js/lang.js"></script>
   <script src="js/animate.js"></script>
+  <script src="js/chat-widget.js"></script>  
 
+<!-- Chat Widget -->
+<div id="chat-widget">
+    <div id="chat-header" class="lang" data-pt="Precisa de ajuda?" data-en="Need help?">
+      Need help? <span id="chat-close">×</span>
+    </div>
+    <div id="chat-messages"></div>
+    <form id="chat-form">
+      <input type="text" id="chat-input"
+             class="lang"
+             data-pt="Digite sua mensagem..."
+             data-en="Type your message..."
+             placeholder="Type your message..."
+             autocomplete="off" />
+      <button type="submit">▶</button>
+    </form>
+  </div>  
+  
 </body>
 </html>
