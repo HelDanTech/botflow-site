@@ -35,3 +35,182 @@ a { text-decoration:none; }
 @media (max-width:600px) {
   .nav-links { display:none; }
 }
+
+/* Container for consistent width & centering */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+  
+  /* 1. Features Grid */
+  .features .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .features .card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .features .card .icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* 2. How It Works Timeline */
+  .timeline .steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .timeline .step {
+    flex: 1;
+    min-width: 200px;
+    background: #ECEFF1;
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+  }
+  .timeline .step h3 {
+    background: #0D8ABC;
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    margin: 0 auto 0.5rem;
+  }
+  .timeline .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    width: 2rem;
+    height: 2px;
+    background: #33D9B2;
+    transform: translateY(-50%);
+  }
+  
+  /* 3. Pricing Table */
+  .pricing table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+  }
+  .pricing th,
+  .pricing td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  .pricing th {
+    background: #0D8ABC;
+    color: white;
+  }
+  .pricing td:first-child {
+    text-align: left;
+    background: #f9f9f9;
+  }
+  .pricing tbody tr:nth-child(even) {
+    background: #ECEFF1;
+  }
+  
+  /* Allow horizontal scroll on mobile */
+  .pricing {
+    overflow-x: auto;
+  }
+  
+  /* 4. About Section */
+  .about {
+    background: #fdfdfd;
+    padding: 3rem 0;
+  }
+  .about p {
+    max-width: 800px;
+    margin: 1rem auto;
+    line-height: 1.6;
+  }
+  
+  /* 5. Footer */
+  .footer {
+    background: #2E2E2E;
+    color: #ECEFF1;
+    padding: 2rem 0;
+  }
+  .footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .footer h3 {
+    margin-bottom: 1rem;
+  }
+  .footer p,
+  .footer a {
+    color: #ECEFF1;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .footer .social a {
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+  
+  /* 6. Responsive Breakpoints */
+  
+  /* Tablet & small desktop */
+  @media (max-width: 992px) {
+    .timeline .step:not(:last-child)::after {
+      display: none;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    /* Features: stack cards vertically */
+    .features .grid {
+      grid-template-columns: 1fr;
+    }
+    /* Timeline: stack steps */
+    .timeline .steps {
+      flex-direction: column;
+    }
+    /* Footer columns: stack */
+    .footer .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  /* Small mobile */
+  @media (max-width: 480px) {
+    /* Hero text resize */
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    /* Buttons full width */
+    .hero-cta .btn {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    /* Navigation: show a hamburger or hide nav-links, show lang-switch only */
+    .nav-links {
+      display: none;
+    }
+    .lang-switch {
+      margin-left: auto;
+    }
+  }
+  
