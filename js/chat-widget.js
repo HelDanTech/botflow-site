@@ -70,13 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (state !== 'init') return;
     const lang = document.documentElement.lang;
 
-    // Greet
     sendBot(lang==='pt'
       ? 'Olá! Bem-vindo ao BotFlow Solutions. Carregando cardápio…'
       : 'Hi! Welcome to BotFlow Solutions. Loading menu…'
     );
 
-    // Fetch menu safely
     let url;
     try {
       url = new URL('/api/menu', API_BASE).toString();
@@ -93,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const ct = res.headers.get('content-type')||'';
+      const ct = res.headers.get('content-type') || '';
       if (!ct.includes('application/json')) {
         throw new Error('Expected JSON, got ' + ct);
       }
@@ -107,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Render menu
     menuItems.forEach(i => {
       sendBot(`${i.id}) ${lang==='pt'?i.name_pt:i.name_en} — ${i.price} AOA`);
     });
@@ -131,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       switch(state) {
-        // … your menu/quantity/more/payment/scheduling logic here …
         default:
           sendBot(lang==='pt'
             ? 'Estado desconhecido.'
