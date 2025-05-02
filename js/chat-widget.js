@@ -1,6 +1,6 @@
 // js/chat-widget.js
 document.addEventListener('DOMContentLoaded', () => {
-  const API_BASE = 'https://019e-102-130-206-189.ngrok-free.app';
+  const API_BASE = 'https://6891-102-130-206-189.ngrok-free.app';
 
   const widget    = document.getElementById('chat-widget');
   const header    = document.getElementById('chat-header');
