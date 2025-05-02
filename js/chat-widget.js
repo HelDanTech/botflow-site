@@ -131,8 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       switch(state) {
-        // … implement menu, quantity, more, payment, scheduling, as before …
-        // For brevity, assuming you’ve back-ported the same logic here
+        // … your menu/quantity/more/payment/scheduling logic here …
         default:
           sendBot(lang==='pt'
             ? 'Estado desconhecido.'
