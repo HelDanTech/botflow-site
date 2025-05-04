@@ -1,10 +1,12 @@
 // js/chat-widget.js
+// Overwrite this entire file with the content below, making sure API_BASE matches your current ngrok URL exactly.
+
 document.addEventListener('DOMContentLoaded', () => {
-  // ─── 1. SET YOUR PUBLIC API BASE HERE ────────────────────────────────────────
-  const API_BASE = 'https://6891-102-130-206-189.ngrok-free.app';
+  // ─── 1. SET YOUR PUBLIC API BASE HERE ────────────────────────────────────
+  const API_BASE = 'https://e105-102-130-206-189.ngrok-free.app';
   console.log('🔗 API_BASE is:', API_BASE);
 
-  // ─── 2. CACHE DOM & STATE ────────────────────────────────────────────────────
+  // ─── 2. CACHE DOM & STATE ───────────────────────────────────────────────
   const widget    = document.getElementById('chat-widget');
   const header    = document.getElementById('chat-header');
   const closeBtn  = document.getElementById('chat-close');
@@ -12,13 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const input     = document.getElementById('chat-input');
   const messages  = document.getElementById('chat-messages');
   const langElems = document.querySelectorAll('.lang');
+
   let state       = 'init';
   let menuItems   = [];
   let order       = [];
   let currentItem = null;
   let totalPrice  = 0;
 
-  // ─── 3. LANGUAGE SWITCHER ───────────────────────────────────────────────────
+  // ─── 3. LANGUAGE SWITCHER ──────────────────────────────────────────────
   function setLang(lang) {
     langElems.forEach(el => {
       const text = el.getAttribute(`data-${lang}`);
@@ -32,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   setLang('pt');
 
-  // ─── 4. MESSAGE HELPERS ─────────────────────────────────────────────────────
+  // ─── 4. MESSAGE HELPERS ───────────────────────────────────────────────
   function sendBot(txt) {
     const d = document.createElement('div');
     d.className = 'msg bot';
     d.textContent = txt;
     messages.appendChild(d);
     messages.scrollTop = messages.scrollHeight;
-    console.log('Bot message sent:', txt);
+    console.log('Bot message:', txt);
   }
   function sendUser(txt) {
     const d = document.createElement('div');
@@ -49,24 +52,25 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.scrollTop = messages.scrollHeight;
   }
 
-  // ─── 5. HEADER CLICK = START FLOW ───────────────────────────────────────────
+  // ─── 5. HEADER CLICK = START FLOW ─────────────────────────────────────
   header.addEventListener('click', async () => {
     widget.classList.toggle('open');
     if (state !== 'init') return;
     const lang = document.documentElement.lang;
 
-    sendBot(lang === 'pt'
+    sendBot(lang==='pt'
       ? 'Olá! Bem-vindo ao BotFlow Solutions. Carregando cardápio…'
       : 'Hi! Welcome to BotFlow Solutions. Loading menu…'
     );
 
+    // Build and fetch menu
     let url;
     try {
       url = new URL('/api/menu', API_BASE).toString();
       console.log('Fetching menu from URL:', url);
     } catch (err) {
       console.error('Invalid URL:', err);
-      sendBot(lang === 'pt'
+      sendBot(lang==='pt'
         ? 'Erro interno: URL do cardápio inválida.'
         : 'Internal error: invalid menu URL.'
       );
@@ -81,24 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
       menuItems = await res.json();
     } catch (err) {
       console.error('Menu load failed:', err);
-      sendBot(lang === 'pt'
+      sendBot(lang==='pt'
         ? 'Desculpe, não consegui carregar o cardápio.'
         : 'Sorry, failed to load the menu.'
       );
       return;
     }
 
-    menuItems.forEach(i => {
-      sendBot(`${i.id}) ${lang === 'pt' ? i.name_pt : i.name_en} — ${i.price} AOA`);
+    // Render menu items
+    menuItems.forEach(item => {
+      sendBot(`${item.id}) ${lang==='pt'?item.name_pt:item.name_en} — ${item.price} AOA`);
     });
-    sendBot(lang === 'pt'
+    sendBot(lang==='pt'
       ? 'Digite o número do item que deseja.'
       : 'Please type the item number you want.'
     );
     state = 'menu';
   });
 
-  // ─── 6. FORM SUBMISSION = STATE MACHINE ────────────────────────────────────
+  // ─── 6. FORM SUBMISSION = STATE MACHINE ────────────────────────────────
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const text = input.value.trim();
@@ -109,20 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       switch (state) {
+        // Implement menu, quantity, more, payment, scheduling states here
         default:
-          sendBot(lang === 'pt'
+          sendBot(lang==='pt'
             ? 'Estado desconhecido.'
             : 'Unknown state.'
           );
       }
     } catch (err) {
       console.error('Flow error:', err);
-      sendBot(lang === 'pt'
+      sendBot(lang==='pt'
         ? 'Desculpe, ocorreu um erro.'
         : 'Sorry, an error occurred.'
       );
     }
   });
 
+  // Close widget
   closeBtn.addEventListener('click', () => widget.classList.remove('open'));
 });
