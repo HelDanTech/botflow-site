@@ -1,10 +1,10 @@
 // js/chat-widget.js
 document.addEventListener('DOMContentLoaded', () => {
-  // ─── 1. SET YOUR PUBLIC API BASE HERE ────────────────────────────────────
+  // ─── 1. SET YOUR PUBLIC API BASE HERE ────────────────────────────────────────
   const API_BASE = 'https://6891-102-130-206-189.ngrok-free.app';
   console.log('🔗 API_BASE is:', API_BASE);
 
-  // ─── 2. CACHE DOM & STATE ───────────────────────────────────────────────
+  // ─── 2. CACHE DOM & STATE ────────────────────────────────────────────────────
   const widget    = document.getElementById('chat-widget');
   const header    = document.getElementById('chat-header');
   const closeBtn  = document.getElementById('chat-close');
@@ -12,14 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const input     = document.getElementById('chat-input');
   const messages  = document.getElementById('chat-messages');
   const langElems = document.querySelectorAll('.lang');
-
   let state       = 'init';
   let menuItems   = [];
   let order       = [];
   let currentItem = null;
   let totalPrice  = 0;
 
-  // ─── 3. LANGUAGE SWITCHER ──────────────────────────────────────────────
+  // ─── 3. LANGUAGE SWITCHER ───────────────────────────────────────────────────
   function setLang(lang) {
     langElems.forEach(el => {
       const text = el.getAttribute(`data-${lang}`);
@@ -33,13 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   setLang('pt');
 
-  // ─── 4. MESSAGE HELPERS ───────────────────────────────────────────────
+  // ─── 4. MESSAGE HELPERS ─────────────────────────────────────────────────────
   function sendBot(txt) {
     const d = document.createElement('div');
     d.className = 'msg bot';
     d.textContent = txt;
     messages.appendChild(d);
     messages.scrollTop = messages.scrollHeight;
+    console.log('Bot message sent:', txt);
   }
   function sendUser(txt) {
     const d = document.createElement('div');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.scrollTop = messages.scrollHeight;
   }
 
-  // ─── 5. HEADER CLICK = START FLOW ─────────────────────────────────────
+  // ─── 5. HEADER CLICK = START FLOW ───────────────────────────────────────────
   header.addEventListener('click', async () => {
     widget.classList.toggle('open');
     if (state !== 'init') return;
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'Hi! Welcome to BotFlow Solutions. Loading menu…'
     );
 
-    // Fetch menu safely
     let url;
     try {
       url = new URL('/api/menu', API_BASE).toString();
@@ -93,13 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
       sendBot(`${i.id}) ${lang === 'pt' ? i.name_pt : i.name_en} — ${i.price} AOA`);
     });
     sendBot(lang === 'pt'
-      ? "Digite o número do item que deseja."
-      : "Please type the item number you want."
+      ? 'Digite o número do item que deseja.'
+      : 'Please type the item number you want.'
     );
     state = 'menu';
   });
 
-  // ─── 6. FORM SUBMISSION = STATE MACHINE ────────────────────────────────
+  // ─── 6. FORM SUBMISSION = STATE MACHINE ────────────────────────────────────
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const text = input.value.trim();
@@ -110,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       switch (state) {
-        // TODO: implement the full ordering flow states here
         default:
           sendBot(lang === 'pt'
             ? 'Estado desconhecido.'
@@ -126,6 +124,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close widget
   closeBtn.addEventListener('click', () => widget.classList.remove('open'));
 });
